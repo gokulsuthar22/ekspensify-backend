@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset='UTF-8' />
+    <title>Your OTP Code</title>
+    <style>
+      body { font-family: Arial, sans-serif; color: #333333; } .container {
+      max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid
+      #dddddd; border-radius: 5px; } .header { font-size: 24px; color: #0073e6;
+      } .otp-code { font-size: 20px; color: #0073e6; font-weight: bold; } .note
+      { font-size: 14px; color: #999999; } .footer { margin-top: 20px;
+      font-size: 14px; color: #888888; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <div class='container'>
+      <div class='header'>Hello, {{username}}</div>
+      <p>Here is your One-Time Password (OTP) for verification:</p>
+      <p class='otp-code'>{{code}}</p>
+      <p>This code is valid for 10 minutes. Please use it promptly.</p>
+      <p class='note'>If you did not request this OTP, please ignore this email.</p>
+      <p>Thank you!</p>
+      <div class='footer'>&copy; 2025 Ekspensify. All rights reserved.</div>
+    </div>
+  </body>
+</html>

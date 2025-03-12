@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  ekspensify-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ekspensify-api
+    ports:
+      - '3000:3000'
+    env_file:
+      - path: ./.env.dev
+    depends_on:
+      - ekspensify-db
+      - ekspensify-cache
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: sh -c "npx prisma migrate deploy && npm run start:dev"
+    restart: always
+
+  ekspensify-db:
+    image: postgres:17
+    container_name: ekspensify-db
+    environment:
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - ekspensify-db-data:/var/lib/postgresql/data
+    restart: always
+
+  ekspensify-cache:
+    image: redis:7
+    container_name: ekspensify-cache
+    ports:
+      - '6379:6379'
+    volumes:
+      - ekspensify-cache-data:/data
+    restart: always
+
+volumes:
+  ekspensify-db-data:
+  ekspensify-cache-data:

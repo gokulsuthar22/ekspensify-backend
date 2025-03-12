@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  ekspensify-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ekspensify-api
+    ports:
+      - '3000:3000'
+    env_file:
+      - path: .env
+    depends_on:
+      - ekspensify-cache
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: sh -c "npx prisma migrate deploy && npm start"
+    restart: always
+
+  ekspensify-cache:
+    image: redis:7
+    container_name: ekspensify-cache
+    ports:
+      - '6379:6379'
+    volumes:
+      - ekspensify-cache-data:/data
+    restart: always
+
+volumes:
+  ekspensify-cache-data:

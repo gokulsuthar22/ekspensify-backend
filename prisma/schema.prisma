@@ -1,0 +1,261 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["relationJoins"]
+  binaryTargets   = ["native"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+}
+
+model User {
+  id         Int       @id @default(autoincrement())
+  name       String    @map("name")
+  avatar     String    @default("ic_avatar_default") @map("avatar")
+  email      String    @unique @map("email")
+  role       Role      @default(USER) @map("role")
+  status     Status    @default(ACTIVE) @map("status")
+  isVerified Boolean   @default(true) @map("is_verified")
+  createdAt  DateTime  @default(now()) @map("created_at")
+  updatedAt  DateTime  @updatedAt @map("updated_at")
+  deletedAt  DateTime? @map("deleted_at")
+
+  accounts     Account[]
+  categories   Category[]
+  transactions Transaction[]
+  media        Media[]
+  budgets      Budget[]
+
+  @@map("users")
+}
+
+model Otp {
+  id         Int      @id @default(autoincrement())
+  code       Int      @map("code")
+  email      String   @unique @map("email")
+  isVerified Boolean  @default(false) @map("is_verified")
+  expiresAt  DateTime @map("expires_at")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@map("otps")
+}
+
+enum MediaType {
+  IMAGE
+}
+
+enum EntityType {
+  category
+  transaction
+}
+
+model Media {
+  id                 Int                  @id @default(autoincrement())
+  userId             Int                  @map("user_id")
+  entityId           Int?                 @map("entity_id")
+  entityType         EntityType?          @map("entity_type")
+  name               String               @map("name")
+  path               String               @map("path")
+  size               Int                  @map("size")
+  mime               String               @map("mime")
+  uploadedAt         DateTime             @default(now()) @map("uploaded_at")
+  user               User                 @relation(fields: [userId], references: [id])
+  categories         Category[]
+  transactions       Transaction[]
+  customCategoryIcon CustomCategoryIcon[]
+
+  @@map("media")
+}
+
+enum TxType {
+  CREDIT
+  DEBIT
+}
+
+model Transaction {
+  id           Int       @id @default(autoincrement())
+  userId       Int       @map("user_id")
+  accountId    Int       @map("account_id")
+  categoryId   Int       @map("category_id")
+  attachmentId Int?      @map("attachment_id")
+  slug         String?   @map("slug")
+  amount       Decimal   @map("amount")
+  note         String?   @map("note")
+  type         TxType    @map("type")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+  deletedAt    DateTime? @map("deleted_at")
+
+  attachment        Media?              @relation(fields: [attachmentId], references: [id])
+  user              User?               @relation(fields: [userId], references: [id])
+  account           Account?            @relation(fields: [accountId], references: [id])
+  category          Category?           @relation(fields: [categoryId], references: [id])
+  BudgetTransaction BudgetTransaction[]
+
+  @@map("transactions")
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  userId      Int?      @map("user_id")
+  iconId      Int?      @map("icon_id")
+  name        String    @map("name")
+  slug        String    @map("slug")
+  type        TxType?   @map("type")
+  icFillColor String?   @map("ic_fill_color")
+  isActive    Boolean   @default(true) @map("is_active")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  user           User?            @relation(fields: [userId], references: [id])
+  icon           Media?           @relation(fields: [iconId], references: [id])
+  transactions   Transaction[]
+  BudgetCategory BudgetCategory[]
+
+  @@map("categories")
+}
+
+enum AcType {
+  BANK
+  WALLET
+}
+
+model Account {
+  id        Int       @id @default(autoincrement())
+  userId    Int       @map("user_id")
+  name      String    @map("name")
+  type      AcType    @map("type")
+  slug      String    @map("slug")
+  icon      String?   @map("icon")
+  balance   Decimal   @map("balance")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  user         User           @relation(fields: [userId], references: [id])
+  transactions Transaction[]
+  BudgetAcount BudgetAcount[]
+
+  @@map("accounts")
+}
+
+model CustomCategoryIcon {
+  id          Int       @id @default(autoincrement())
+  iconId      Int       @map("icon_id")
+  icFillColor String?   @map("ic_fill_color")
+  isActive    Boolean   @default(true) @map("is_active")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+  icon        Media?    @relation(fields: [iconId], references: [id])
+
+  @@map("custom_category_icons")
+}
+
+enum BudgetType {
+  RECURRING
+  EXPIRING
+}
+
+enum BudgetPeriod {
+  DAILY
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+  YEARLY
+}
+
+enum BudgetStatus {
+  RUNNING
+  CLOSED
+}
+
+model Budget {
+  id        Int           @id @default(autoincrement())
+  limit     Decimal       @map("limit")
+  spent     Decimal?      @default(0) @map("spent")
+  userId    Int           @map("user_id")
+  reportId  Int?          @map("report_id")
+  periodNo  Int?          @default(1) @map("period_no")
+  period    BudgetPeriod  @map("period")
+  type      BudgetType    @map("type")
+  status    BudgetStatus? @default(RUNNING) @map("status")
+  startDate DateTime      @map("start_date")
+  endDate   DateTime?     @map("end_date")
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @updatedAt @map("updated_at")
+
+  user               User?               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  report             BudgetReport?       @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  budgetCategories   BudgetCategory[]
+  budgetAccounts     BudgetAcount[]
+  budgetTransactions BudgetTransaction[]
+
+  @@map("budgets")
+}
+
+model BudgetCategory {
+  id         Int @id @default(autoincrement())
+  budgetId   Int @map("budget_id")
+  categoryId Int @map("category_id")
+
+  category Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  budget   Budget?   @relation(fields: [budgetId], references: [id], onDelete: Cascade)
+
+  @@map("budget_categories")
+}
+
+model BudgetAcount {
+  id        Int @id @default(autoincrement())
+  budgetId  Int @map("budget_id")
+  accountId Int @map("category_id")
+
+  account Account? @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  budget  Budget?  @relation(fields: [budgetId], references: [id], onDelete: Cascade)
+
+  @@map("budget_accounts")
+}
+
+model BudgetTransaction {
+  id            Int      @id @default(autoincrement())
+  budgetId      Int      @map("budget_id")
+  transactionId Int      @map("transaction_id")
+  reportId      Int      @map("report_id")
+  amount        Decimal  @map("amount")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  budget      Budget?       @relation(fields: [budgetId], references: [id], onDelete: Cascade)
+  transaction Transaction?  @relation(fields: [transactionId], references: [id], onDelete: Cascade)
+  report      BudgetReport? @relation(fields: [reportId], references: [id], onDelete: Cascade)
+
+  @@map("budget_transactions")
+}
+
+model BudgetReport {
+  id                Int      @id @default(autoincrement())
+  budgetId          Int      @map("budget_id")
+  amount            Decimal? @default(0) @map("amount")
+  periodNo          Int      @map("period_no")
+  totalTransactions Int?     @default(0) @map("total_transactions")
+  periodStartDate   DateTime @map("period_start_date")
+  periodEndDate     DateTime @map("period_end_date")
+  createdAt         DateTime @default(now()) @map("created_at")
+
+  budget             Budget[]
+  budgetTransactions BudgetTransaction[]
+
+  @@map("budget_reports")
+}

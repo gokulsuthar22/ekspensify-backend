@@ -1,0 +1,52 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Transaction Table</title>
+    <style>
+      /* General Reset */ * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: 'Arial', sans-serif; /* Better font for print */
+      line-height: 1.5; margin: 0; padding: 0; } /* Page setup for A4 paper */
+      @page { size: A4; margin: 10mm; } table { width: 100%; border-collapse:
+      collapse; margin-top: 10mm; /* Make sure the table starts immediately */ }
+      th, td { border: 1px solid #ddd; padding: 8px; text-align: left; } th {
+      background-color: #f4f4f4; font-weight: bold; font-size: 14px; /* Adjust
+      font size for readability */ } td { font-size: 12px; /* Slightly smaller
+      text for data */ } tr:nth-child(even) { background-color: #f9f9f9; /*
+      Alternating row colors */ } tr:hover { background-color: #f1f1f1; } h1 {
+      font-size: 18px; margin: 15px 0; text-align: center; } /* Print-specific
+      styles */ @media print { body { margin: 0; padding: 0; } h1 { font-size:
+      16px; page-break-before: always; /* Ensure title appears at the top of the
+      page */ } table { page-break-before: always; /* Force page break if table
+      overflows */ } th, td { font-size: 12px; padding: 6px; } }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Sr. No</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Note</th>
+          <th>Category</th>
+          <th>Account</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each transactions}}
+          <tr>
+            <td>{{this.srNo}}</td>
+            <td>{{this.amount}}</td>
+            <td>{{this.type}}</td>
+            <td>{{this.note}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.account}}</td>
+            <td>{{this.date}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </body>
+</html>
