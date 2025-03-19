@@ -8,11 +8,11 @@
 
 ## **🚀 Overview**
 
-Welcome to **Ekspensify**, your personal finance tracking app made with **Kotlin** and **Jetpack Compose**! This project is all about making financial management simple, fun, and stress-free. Whether you’re budgeting like a pro or just starting, **Ekspensify** helps you stay on top of your money! 💰✨
+Welcome to Ekspensify Backend, the powerful engine behind your personal finance tracking app! Built with Node.js, NestJS, and PostgreSQL, this backend ensures secure, efficient, and scalable financial management. From handling user authentication to managing transactions, it’s designed to keep your data safe and accessible. 💡🔐
 
 ### **✨ Why I Built This**
 
-I wanted a **clean, intuitive, and fun way** to track income and expenses. No more boring spreadsheets - just a smooth experience with a **beautiful UI, insightful analytics, and helpful budgeting tools**. This app is my solution to making finance tracking **enjoyable and effortless**! 🚀
+I wanted a robust, scalable, and well-structured backend to support a seamless finance tracking experience. No more slow or unreliable systems—just a fast, secure, and efficient API that powers real-time analytics, budgeting tools, and smooth data handling. This backend is built to make finance tracking reliable, secure, and hassle-free! 🚀
 
 ## **🌟 Features**
 
