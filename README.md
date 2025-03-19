@@ -1,99 +1,142 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🎉 Ekspensify - Your Personal Finance Buddy!
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+![Node.js](https://img.shields.io/badge/Node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white) ![NestJS](https://img.shields.io/badge/NestJS-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white) ![Prisma](https://img.shields.io/badge/Prisma-%23000000.svg?style=for-the-badge&logo=prisma&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-%23336791.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Redis](https://img.shields.io/badge/Redis-%23DC382D.svg?style=for-the-badge&logo=redis&logoColor=white) ![OneSignal](https://img.shields.io/badge/OneSignal-%23FF0000.svg?style=for-the-badge&logo=onesignal&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+[![Google Play](https://img.shields.io/endpoint?color=green&logo=google-play&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Dcom.ekspensify.app%26l%3DGoogle%2520Play%26m%3Dv%24version)](https://play.google.com/store/apps/details?id=com.ekspensify.app)
+[![Google Play](https://img.shields.io/endpoint?color=green&logo=google-play&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Dcom.ekspensify.app%26l%3Ddownloads%26m%3D%24totalinstalls)](https://play.google.com/store/apps/details?id=com.ekspensify.app)
+![GitHub repo size](https://img.shields.io/github/repo-size/gokulsuthar22/ekspensify-backend.svg?logo=github)
 
-## Description
+## **🚀 Overview**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Welcome to **Ekspensify**, your personal finance tracking app made with **Kotlin** and **Jetpack Compose**! This project is all about making financial management simple, fun, and stress-free. Whether you’re budgeting like a pro or just starting, **Ekspensify** helps you stay on top of your money! 💰✨
 
-## Project setup
+### **✨ Why I Built This**
 
-```bash
-$ npm install
-```
+I wanted a **clean, intuitive, and fun way** to track income and expenses. No more boring spreadsheets - just a smooth experience with a **beautiful UI, insightful analytics, and helpful budgeting tools**. This app is my solution to making finance tracking **enjoyable and effortless**! 🚀
 
-## Compile and run the project
+## **🌟 Features**
 
-```bash
-# development
-$ npm run start
+- 📌 **Track Income & Expenses**: Effortlessly record and keep track of your income and expenses in real time.
+- 🏷 **Categories for Income & Expenses**: Includes all standard categories and allows custom categories.
+- 📩 **Automatic Tracking via SMS**: Detects transactions from SMS alerts and tracks them in pending transactions for review.
+- 💰 **Budget Management**: Create budgets to limit spending and stay on track.
+- 🔔 **Budget Alerts**: Get notified when you're approaching or exceeding your budget.
+- 🎨 **Modern UI**: Designed for a sleek and intuitive user experience
+- 📊 **Dashboard & Analytics**: Break down expenses and income by category with visual insights.
+- 🏦 **Multiple Account Tracking**: Manage and track finances separately for different bank accounts.
+- ☁ **Cloud Storage:** Your transaction records are securely stored on the server, keeping them safe and accessible.
+- 📄 **PDF & CSV Export**: Easily export transaction data for reporting and record-keeping.
 
-# watch mode
-$ npm run start:dev
+## **🎉 Download the App**
 
-# production mode
-$ npm run start:prod
-```
+You can get the latest version of the app from the Google Play Store:
 
-## Run tests
+[<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="80"/>](https://play.google.com/store/apps/details?id=com.memeusix.ekspensify)
 
-```bash
-# unit tests
-$ npm run test
+## **🛠 Tech Stack**
 
-# e2e tests
-$ npm run test:e2e
+- **TypeScript** – Used as the primary programming language for the backend.
+- **NestJS** – A progressive Node.js framework for building scalable server-side applications.
+- **PostgreSQL** – Relational database for efficient and reliable data storage.
+- **Prisma** – ORM for database management and queries with TypeScript support.
+- **Redis** – In-memory data store for caching and real-time data processing.
+- **Docker** – Containerization for consistent and scalable deployments.
+- **AWS (EC2 / S3)** – EC2 for hosting the backend, and S3 for file storage and management.
+- **Onesignal** – Onesignal for sending real time notifications to app client.
 
-# test coverage
-$ npm run test:cov
-```
+## **📸 Screenshots**
 
-## Deployment
+<img src="https://ekspensify-aws-bucket.s3.ap-south-1.amazonaws.com/Feature+graphic.png" alt="preview"/>
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+<br/>
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+<img src="https://ekspensify-aws-bucket.s3.ap-south-1.amazonaws.com/Feature+graphic-1.png" alt="preview"/>
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+## **🔧 Installation & Setup**
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+This is a complete **backend** that interacts with a database. While you can't fully utilize all features without a connected database and environment setup, you can still run it locally for testing and development.
 
-## Resources
+### Run Project Without Docker:
 
-Check out a few resources that may come in handy when working with NestJS:
+- Clone the repository:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+  ```bash
+  git clone https://github.com/gokulsuthar22/ekspensify-backend.git
+  ```
 
-## Support
+- Create `.env` file
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+  ```bash
+  touch .env
+  ```
 
-## Stay in touch
+- Copy content of `.sample.env` to `.env`:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+  ```bash
+  cp .env.sample .env
+  ```
 
-## License
+- Replace placeholder values (your_db_user, your_jwt_secret, etc.) with your actual credentials, eg.
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+  ```bash
+  DATABASE_USER=postgres
+  DATABASE_PASSWORD=mydbpass
+  ```
+
+- Install dependencies
+
+  ```bash
+  npm install
+  ```
+
+- Start the server
+
+  ```bash
+  npm run start:dev
+  ```
+
+### Run Project Using Docker:
+
+- Clone the repository:
+
+  ```bash
+  git clone https://github.com/gokulsuthar22/ekspensify-backend.git
+  ```
+
+- Create `.env.dev` file
+
+  ```bash
+  touch .env.dev
+  ```
+
+- Copy content of `.sample.env` to `.env.dev`:
+
+  ```bash
+  cp .env.sample .env.dev
+  ```
+
+- Replace placeholder values (your_db_user, your_jwt_secret, etc.) with your actual credentials, eg.
+
+  ```bash
+  ...
+  DATABASE_USER=postgres
+  DATABASE_PASSWORD=mydbpass
+  ...
+  ```
+
+- Start the server using docker compose
+
+  ```bash
+    docker-compose -f docker-compose.dev.yml --env-file .env.dev up --build
+  ```
+
+## **🤝 Contributing**
+
+Enjoying this project? Help make it even better! 🚀 **Report issues, contribute code, or share your ideas**—let’s create something awesome together. 💡💻
+
+## **📬 Let's Connect!**
+
+Got feedback or ideas? Reach out to me! I’d love to hear from you. 🎉
+
+- 📧 Email: team@ekspensify.in
+- 💼 LinkedIn: [Gokul Suthar | LinkedIn](https://www.linkedin.com/in/gokulsuthar22/)
