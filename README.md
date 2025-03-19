@@ -61,7 +61,7 @@ This is a complete **backend** that interacts with a database. While you can't f
 - Clone the repository:
 
   ```bash
-  git clone https://github.com/gokulsuthar22/ekspensify-backend.git
+  git clone https://github.com/gokulsuthar22/ekspensify-backend.git .
   ```
 
 - Create `.env` file
@@ -79,8 +79,10 @@ This is a complete **backend** that interacts with a database. While you can't f
 - Replace placeholder values (your_db_user, your_jwt_secret, etc.) with your actual credentials, eg.
 
   ```bash
+  ...
   DATABASE_USER=postgres
   DATABASE_PASSWORD=mydbpass
+  ...
   ```
 
 - Install dependencies
@@ -100,7 +102,7 @@ This is a complete **backend** that interacts with a database. While you can't f
 - Clone the repository:
 
   ```bash
-  git clone https://github.com/gokulsuthar22/ekspensify-backend.git
+  git clone https://github.com/gokulsuthar22/ekspensify-backend.git .
   ```
 
 - Create `.env.dev` file
@@ -127,7 +129,7 @@ This is a complete **backend** that interacts with a database. While you can't f
 - Start the server using docker compose
 
   ```bash
-    docker-compose -f docker-compose.dev.yml --env-file .env.dev up --build
+  docker-compose -f docker-compose.dev.yml --env-file .env.dev up --build
   ```
 
 ## **🤝 Contributing**
