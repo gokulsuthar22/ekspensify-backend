@@ -158,10 +158,18 @@ export class TransactionRepository {
         where: { id },
         select: this.select,
       });
-      if (transaction) {
+      if (transaction && transaction.type === 'CREDIT') {
+        await this.accountService.debit(
+          transaction.accountId,
+          +transaction.amount,
+          ctx,
+        );
+      }
+      if (transaction && transaction.type === 'DEBIT') {
         await this.accountService.credit(
           transaction.accountId,
           +transaction.amount,
+          ctx,
         );
       }
       return transaction;
@@ -204,7 +212,14 @@ export class TransactionRepository {
         where,
         select: this.select,
       });
-      if (transaction) {
+      if (transaction && transaction.type === 'CREDIT') {
+        await this.accountService.debit(
+          transaction.accountId,
+          +transaction.amount,
+          ctx,
+        );
+      }
+      if (transaction && transaction.type === 'DEBIT') {
         await this.accountService.credit(
           transaction.accountId,
           +transaction.amount,
