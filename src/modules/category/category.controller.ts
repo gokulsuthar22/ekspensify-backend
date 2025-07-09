@@ -27,8 +27,6 @@ import { ParseIntPipe } from '@/core/pipes/parse-int.pipe';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { CategoryIconValidationPipe } from './pipes/category-icon-validation.pipe';
 import { UploadIconResponseDto } from './dtos/upload-icon-response.dto';
-import { CacheInterceptor, CacheKey } from '@nestjs/cache-manager';
-import { CATEGORY_CACHE_KEY } from './category.constants';
 import { CategoryInsightsResponseDto } from './dtos/category-insights-response.dto';
 import { FilterCategoryInsightsDto } from './dtos/filter-category-insights.dto';
 

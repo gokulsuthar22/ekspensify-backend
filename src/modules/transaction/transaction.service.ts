@@ -68,7 +68,7 @@ export class TransactionService {
 
     if (!budgets.length) return;
 
-    for (let budget of budgets) {
+    for (const budget of budgets) {
       const budgetTx = await this.budgetTransactionRepo.create({
         budgetId: budget.id,
         reportId: budget.reportId,
@@ -85,13 +85,13 @@ export class TransactionService {
         budgetTx.reportId,
       );
 
-      const [__, updatedBudget] = await Promise.all([
+      const [updatedBudget] = await Promise.all([
+        this.budgetRepo.updateById(budget.id, {
+          spent: totalPeriodAmt,
+        }),
         this.budgetReportRepo.update(budget.reportId, {
           amount: totalPeriodAmt,
           totalTransactions: totalReportTx,
-        }),
-        this.budgetRepo.updateById(budget.id, {
-          spent: totalPeriodAmt,
         }),
       ]);
 
@@ -129,7 +129,7 @@ export class TransactionService {
 
     if (!budgetTxns.length) return;
 
-    for (let budgetTxn of budgetTxns) {
+    for (const budgetTxn of budgetTxns) {
       const totalPeriodAmt =
         await this.budgetTransactionRepo.calTotalPeriodAmount(
           budgetTxn.reportId,

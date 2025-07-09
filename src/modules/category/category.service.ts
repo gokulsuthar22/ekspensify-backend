@@ -14,7 +14,6 @@ import { CustomCategoryIconRepository } from '@/modules/custom-category-icons/cu
 import { UtilService } from '@/common/services/util.service';
 
 import * as sharp from 'sharp';
-import { CloudinaryService } from '@/helper/media/services/cloudinary.service';
 
 @Injectable()
 export class CategoryService {
