@@ -39,6 +39,7 @@
     "class-validator": "^0.14.1",
     "cloudinary": "^2.5.1",
     "compression": "^1.7.5",
+    "express": "^5.1.0",
     "google-auth-library": "^9.14.2",
     "json2csv": "^6.0.0-alpha.2",
     "lodash": "^4.17.21",
