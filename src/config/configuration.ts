@@ -30,6 +30,8 @@ export default () => ({
     region: process.env.S3_BUCKET_REGION,
     accessKey: process.env.AWS_ACCESS_KEY,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    publicUrl: process.env.S3_PUBLIC_URL,
+    cfAccId: process.env.CF_ACCOUNT_ID,
   },
 
   cloudinary: {

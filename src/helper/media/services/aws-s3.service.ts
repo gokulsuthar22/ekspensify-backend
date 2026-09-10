@@ -13,7 +13,8 @@ export class AwsS3Service {
   private readonly s3: S3Client;
 
   private readonly bucket = this.configService.get('s3').bucket;
-  private readonly region = this.configService.get('s3').region;
+  private readonly cfAccId = this.configService.get('s3').cfAccId;
+  private readonly publicUrl = this.configService.get('s3').publicUrl;
   private readonly accessKey = this.configService.get('s3').accessKey;
   private readonly secretKey = this.configService.get('s3').secretAccessKey;
 
@@ -22,11 +23,12 @@ export class AwsS3Service {
     private utilService: UtilService,
   ) {
     this.s3 = new S3Client({
+      endpoint: `https://${this.cfAccId}.r2.cloudflarestorage.com`,
       credentials: {
         accessKeyId: this.accessKey,
         secretAccessKey: this.secretKey,
       },
-      region: this.region,
+      region: 'auto',
     });
   }
 
@@ -41,7 +43,7 @@ export class AwsS3Service {
   }
 
   public getObjectUrl(key: string) {
-    return `https://${this.bucket}.s3.${this.region}.amazonaws.com/${key}`;
+    return `${this.publicUrl}/${key}`;
   }
 
   public async upload(buffer: Buffer, fileName: string, contentType: string) {
