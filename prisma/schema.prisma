@@ -26,6 +26,7 @@ model User {
   email      String    @unique @map("email")
   role       Role      @default(USER) @map("role")
   status     Status    @default(ACTIVE) @map("status")
+  fcmToken   String?   @map("fcm_token")
   isVerified Boolean   @default(true) @map("is_verified")
   createdAt  DateTime  @default(now()) @map("created_at")
   updatedAt  DateTime  @updatedAt @map("updated_at")
