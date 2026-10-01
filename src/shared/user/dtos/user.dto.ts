@@ -28,6 +28,9 @@ export class UserDto {
   @Expose({ name: 'isVerified' })
   is_verified: boolean;
 
+  @Expose({ name: 'fcmToken' })
+  fcm_token: string;
+
   @Expose({ name: 'createdAt' })
   created_at: Date;
 
